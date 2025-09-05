@@ -1,0 +1,224 @@
+/* EmployeeCard.css */
+
+/* כרטיס בסיסי */
+.employee-card {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    border: 1px solid #e6e8ec;
+    border-radius: 16px;
+    padding: 16px 18px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+  
+  .employee-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-color: #dfe3e8;
+  }
+  
+  /* מצב עריכה */
+  .employee-card.editing {
+    border-color: #8ab4ff;
+    box-shadow: 0 0 0 4px rgba(138, 180, 255, 0.25);
+  }
+  
+  /* כותרת הכרטיס */
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .employee-name {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f2937;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* תג מצב */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    border: 1px solid transparent;
+  }
+  
+  .status-badge.active {
+    color: #065f46;
+    background: #ecfdf5;
+    border-color: #a7f3d0;
+  }
+  
+  .status-badge.inactive {
+    color: #6b7280;
+    background: #f3f4f6;
+    border-color: #e5e7eb;
+  }
+  
+  /* תיאור תפקיד */
+  .employee-role {
+    margin: 6px 0 14px;
+    color: #4b5563;
+    font-size: 0.95rem;
+  }
+  
+  /* טופס עריכה */
+  .edit-form {
+    display: grid;
+    gap: 14px;
+  }
+  
+  .form-group {
+    display: grid;
+    gap: 6px;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+    color: #374151;
+    font-weight: 600;
+  }
+  
+  .form-group input[type="text"] {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+  }
+  
+  .form-group input[type="text"]:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+  }
+  
+  /* צ'קבוקס */
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #2563eb;
+  }
+  
+  /* כפתורים */
+  .form-buttons,
+  .employee-card .actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  button {
+    appearance: none;
+    border: none;
+    border-radius: 10px;
+    padding: 9px 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 80ms ease, box-shadow 120ms ease, opacity 120ms ease;
+  }
+  
+  button:active {
+    transform: translateY(1px);
+  }
+  
+  /* שמירה/עדכון/מחיקה */
+  .save-button,
+  .update-button {
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+  }
+  
+  .save-button:hover,
+  .update-button:hover {
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.33);
+  }
+  
+  .cancel-button {
+    background: #eef2ff;
+    color: #3730a3;
+  }
+  
+  .cancel-button:hover {
+    background: #e0e7ff;
+  }
+  
+  .delete-button {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .delete-button:hover {
+    background: #fecaca;
+  }
+  
+  /* מרווח בין הכפתורים בתצוגה שאינה עריכה */
+  .employee-card > .delete-button,
+  .employee-card > .update-button {
+    margin-right: 8px;
+  }
+  
+  /* רספונסיביות קלה */
+  @media (max-width: 480px) {
+    .employee-card {
+      padding: 14px;
+      border-radius: 14px;
+    }
+    .employee-name {
+      font-size: 1rem;
+    }
+    .status-badge {
+      padding: 3px 8px;
+      font-size: 0.78rem;
+    }
+  }
+  
+  /* מצב high-contrast/העדפת פחות אנימציה */
+  @media (prefers-reduced-motion: reduce) {
+    .employee-card,
+    button {
+      transition: none;
+    }
+  }
+  
+  /* תמיכה ב-dark mode (אופציונלי) */
+  @media (prefers-color-scheme: dark) {
+    .employee-card {
+      background: #0f172a;
+      border-color: #1e293b;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+    }
+    .employee-name { color: #e5e7eb; }
+    .employee-role { color: #cbd5e1; }
+    .form-group label { color: #cbd5e1; }
+    .form-group input[type="text"] {
+      background: #0b1220;
+      color: #e5e7eb;
+      border-color: #1f2937;
+    }
+    .form-group input[type="text"]::placeholder {
+      color: #94a3b8;
+    }
+  }  
