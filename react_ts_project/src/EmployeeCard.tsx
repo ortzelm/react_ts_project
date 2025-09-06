@@ -35,6 +35,7 @@ function EmployeeCard({ employee, onDelete, onEdit }: EmployeeCardProps) {
 
     return (
         <Card
+            bg="gray.50"
             variant="elevated"
             shadow="md"
             _hover={{ shadow: "lg", transform: "translateY(-2px)" }}
@@ -62,11 +63,12 @@ function EmployeeCard({ employee, onDelete, onEdit }: EmployeeCardProps) {
                             </VStack>
                         </HStack>
                         <Badge
+                            variant="outline"
                             colorScheme={employee.isActive ? 'green' : 'red'}
-                            variant="solid"
                             borderRadius="full"
                             px={3}
                             py={1}
+                            fontWeight="medium"
                         >
                             {employee.isActive ? 'Active' : 'Inactive'}
                         </Badge>
